@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+       .dark {
+        background-color: black;
+        color: white;
+       }
+       .white {
+        background-color: white;
+        color: black;
+       }
+</style>
+<body >
+
+
+
+      
+    <input type="text" id="number1">
+    <select name="" id="chosen">
+        <option value="topla">+</option>
+        <option value="cikar">-</option>
+        <option value="carp">x</option>
+        <option value="böl">/</option>
+    </select>
+    <input type="text" id="number2">   
+    <button onclick="account()">hesapla</button>  
+    <label for="" id="result"></label>
+    <script>
+
+        const sayi1 = document.querySelector("#number1");
+        const sayi2 = document.querySelector("#number2");
+        const choose = document.querySelector("#chosen"); 
+        const sum = document.querySelector("#result")
+      
+       
+
+        function account(){
+             let  islem = choose.value;
+             let sonuc;
+             if(islem == "topla" ){
+                sonuc = Number(sayi1.value) + Number(sayi2.value);
+             }
+             else if(islem == "cikar"){
+                sonuc = Number(sayi1.value) - Number(sayi2.value);
+
+             }else if (islem == "carp"){
+                sonuc = Number(sayi1.value)*Number(sayi2.value);
+             }
+             else {
+                sonuc = Number(sayi1.value)/Number(sayi2.value);
+        
+            }
+
+            sum.innerHTML =`sonuç : ${sonuc} `;
+        }    
+
+           
+    </script>
+
+
+
+</body>
+</html>
