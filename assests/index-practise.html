@@ -22,45 +22,42 @@
 
 
       
-    <input type="text" id="number1">
-    <select name="" id="chosen">
-        <option value="topla">+</option>
-        <option value="cikar">-</option>
-        <option value="carp">x</option>
-        <option value="böl">/</option>
-    </select>
-    <input type="text" id="number2">   
-    <button onclick="account()">hesapla</button>  
+    <input type="number" id="number1">   
+    <button onclick="turn()">hesapla</button>  
     <label for="" id="result"></label>
     <script>
 
         const sayi1 = document.querySelector("#number1");
-        const sayi2 = document.querySelector("#number2");
         const choose = document.querySelector("#chosen"); 
         const sum = document.querySelector("#result")
+
+        function turn (){
+            let price = Number(sayi1.value);
+            let discount;
+
+            switch(true){
+                 case  price>500:
+                 discount =10;
+                 break;
+
+                 case price>700:
+                 discount =8;
+                 break;
+
+                 case price>600:
+                 discount=6; 
+                 break;   
+                     
+                  default:
+                    discount=3;
+            }    
+              price = price-price*discount/100
+              sum.innerText = price;
+        }
       
        
 
-        function account(){
-             let  islem = choose.value;
-             let sonuc;
-             if(islem == "topla" ){
-                sonuc = Number(sayi1.value) + Number(sayi2.value);
-             }
-             else if(islem == "cikar"){
-                sonuc = Number(sayi1.value) - Number(sayi2.value);
-
-             }else if (islem == "carp"){
-                sonuc = Number(sayi1.value)*Number(sayi2.value);
-             }
-             else {
-                sonuc = Number(sayi1.value)/Number(sayi2.value);
         
-            }
-
-            sum.innerHTML =`sonuç : ${sonuc} `;
-        }    
-
            
     </script>
 
